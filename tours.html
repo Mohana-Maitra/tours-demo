@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+ul {
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+ overflow: hidden;
+ background-color: #333;
+}
+li {
+ float: left;
+}
+li a {
+ display: inline-block;
+ color: white;
+ text-align: center;
+ padding: 14px 16px;
+ text-decoration: none;
+}
+h2 {
+    color:white;
+    text-align:center;
+    font face:Bradley Hand ITC;
+}
+li a:hover {
+ background-color: #111;
+}
+.active {
+ background-color: red;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+/*------------------------Scroll Bar-----------------------*/
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fde65e;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #fde02f;
+}
+
+/*========================Nav Bar=========================*/
+.nav-bar {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: 90px;
+  background-color: #fff;
+  box-shadow: 3px 3px 10px lightslategray;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.logo {
+  flex: 1;
+  font-size: 40px;
+  padding: 20px;
+  margin-left: 50px;
+  font-family: Satisfy;
+}
+
+ul.menu {
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.menu li {
+  flex: 1;
+  list-style-type: none;
+  font-size: 16px;
+  font-family: "Barlow Condensed";
+  text-align: center;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.menu li a:hover {
+  color: midnightblue;
+  text-decoration: underline;
+}
+
+/*=============================Banner=============================*/
+.banner {
+  background-image: url("https://thumbs.dreamstime.com/b/beautiful-autumn-scenery-park-beautiful-autumn-scenery-park-outdoor-photography-sunrise-light-101482086.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /*overflow: hidden;*/
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  /*background-size: 100%;*/
+}
+
+.banner-text-item {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-heading {
+  flex: 1;
+}
+
+.banner-heading h1 {
+  font-size: 100px;
+  font-weight: normal;
+  color: #fde02f;
+  font-family: Satisfy;
+}
+
+.banner-text-item .form {
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  width: 70%;
+  padding: 1% 2%;
+}
+
+.banner-text-item input,
+.banner-text-item .date,
+.banner-text-item .book {
+  padding: 15px;
+  margin-right: 10px;
+  font-size: 18px;
+  font-family: Roboto;
+  border-radius: 5px;
+  outline: 0;
+  border: none;
+}
+
+.banner-text-item input {
+  width: 50%;
+  flex: 2;
+}
+
+.banner-text-item .date {
+  width: 20%;
+  flex: 1;
+}
+
+.banner-text-item .book {
+  width: 20%;
+  flex: 1;
+}
+
+.banner-text-item .book {
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  padding: 15px;
+  cursor: pointer;
+  background-color: #fde02f;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Barlow Condensed";
+  width: 20%;
+}
+
+/*===========================Services===========================*/
+.services {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-item {
+  flex: 1;
+  padding: 50px 10px;
+  border: lightcyan solid 1px;
+  text-align: center;
+  margin: 180px 50px;
+  transition: all 1s;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-item:hover {
+  box-shadow: 3px 3px 20px lightsteelblue;
+}
+
+.service-item h2 {
+  font-family: Barlow Condensed;
+  font-size: 18px;
+  width: 120px;
+  color: #001f38;
+  flex: 1;
+}
+
+.service-item img {
+  width: 60px;
+  height: 60px;
+  flex: 1;
+}
+
+/*=============================Places===============================*/
+.places-text {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.places-text small {
+  font-family: Roboto;
+  color: #ffc342;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.places-text h2 {
+  font-family: Barlow Condensed;
+  font-size: 55px;
+  color: #191d34;
+  letter-spacing: 1px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 30px;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.card {
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 80%;
+  height: auto;
+}
+
+.card img {
+  max-width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cards .text {
+  padding: 20px;
+  font-family: Barlow Condensed;
+  line-height: 50px;
+}
+
+.cards .card-box {
+  display: flex;
+  flex-flow: row;
+  background-color: #fde02f;
+  font-size: 18px;
+  font-family: Roboto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cards .time {
+  flex: 1;
+}
+
+.cards .location {
+  flex: 2;
+}
+
+.cards .cost {
+  color: #4cafad;
+  font-size: 20px;
+}
+
+/*------------Zoom in Photos--------------*/
+.zoom-img {
+  float: left;
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.zoom-img .img-card {
+  position: absolute;
+  overflow: hidden;
+}
+
+.img-card img {
+  -webkit-transition: 0.8s ease;
+  transition: 0.8s ease;
+}
+
+.card:hover .zoom-img img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/*=========================About Us=========================*/
+.about {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 150px;
+}
+
+.about-img {
+  flex: 1;
+}
+
+.about-img img {
+  width: 500px;
+  height: 700px;
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.about-text {
+  flex: 1;
+  /*width: 100px;*/
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.about-text small,
+.about-text p,
+.about-text input,
+.about-text a {
+  flex: 1;
+  font-family: Roboto;
+}
+
+.about-text small {
+  color: #ffc342;
+  font-size: 18px;
+}
+
+.about-text h2 {
+  flex: 1;
+  font-family: Barlow Condensed;
+  font-size: 60px;
+  color: #191d34;
+  width: 450px;
+}
+
+.about-text label {
+  padding-bottom: 10px;
+  color: #506172;
+  font-weight: bolder;
+  font-family: Roboto;
+  letter-spacing: 1px;
+}
+
+.about-text p {
+  width: 500px;
+  line-height: 30px;
+  color: #506172;
+  font-weight: bolder;
+  padding: 50px 0;
+}
+
+.about-text a {
+  background-color: #fff;
+  border: 2px solid #014b85;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 180px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
+  color: #014b85;
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.about-text a:hover {
+  background-color: #014b85;
+  color: #fff;
+}
+
+/*===============Footer===================*/
+.footer {
+  background-image: url("https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293781/pine-tree_mq2sgp.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 670px;
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer::before {
+  position: absolute;
+  content: "";
+  display: block;
+  background-color: rgba(0, 0, 36, 0.8);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.footer .links {
+  position: relative;
+  color: #fff;
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.links ul {
+  list-style-type: none;
+}
+
+.links h3 {
+  font-family: Barlow Condensed;
+  font-weight: normal;
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+.links li {
+  font-family: Roboto;
+  cursor: pointer;
+  padding: 15px 0;
+}
+
+.links li:hover {
+  color: #ffa801;
+}
+
+/*==========================Responsive=============================*/
+@media all and (max-width: 1172px) {
+  .banner-text-item .form {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+
+  .banner-text-item .form input,
+  .banner-text-item .form .date,
+  .banner-text-item .form a {
+    flex: 1;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  .banner-text-item .form input {
+    width: 60%;
+  }
+
+  .banner-text-item .form .date {
+    width: 30%;
+  }
+
+  .banner-text-item .form .book {
+    width: 10%;
+    font-size: 14px;
+  }
+
+  .banner-heading h1 {
+    font-size: 60px;
+  }
+}
+
+@media all and (max-width: 1414px) {
+  .banner-text-item .form input {
+    width: 40%;
+  }
+
+  .banner-text-item .form .date {
+    width: 30%;
+  }
+
+  .banner-text-item .form .book {
+    width: 20%;
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 942px) {
+  .nav-bar {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    position: static;
+  }
+
+  .logo {
+    flex: 1;
+    font-size: 30px;
+    margin: 10px auto;
+    font-family: Satisfy;
+    color: #FF0000;
+  }
+
+  .nav-bar ul {
+    display: none;
+  }
+
+  .nav-bar ul li {
+    flex: 1;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  .services {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  .services .service-item {
+    flex: 1;
+    margin-bottom: -130px;
+    width: 400px;
+  }
+
+  .places-text {
+    margin-top: 200px;
+  }
+}
+
+@media all and (max-width: 928px) {
+  .banner .form input,
+  a {
+    font-size: 12px;
+  }
+}
+
+@media all and (max-width: 1173px) {
+  .banner .form {
+    background-color: transparent;
+  }
+}
+
+@media all and (max-width: 1194px) {
+  .places .card-box p {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 1086px) {
+  .places .cards .text {
+    line-height: 40px;
+  }
+
+  .cards .text .h2 {
+    font-size: 12px;
+  }
+
+  .cards .img-card img {
+    height: 260px;
+  }
+}
+
+@media all and (max-width: 974px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 20px;
+  }
+
+  .card {
+    width: 300px;
+    height: 500px;
+    margin: auto;
+  }
+
+  .cards .text {
+    padding: 5px;
+    font-family: Barlow Condensed;
+  }
+}
+
+@media all and (max-width: 1334px) {
+  .about-img img {
+    width: 300px;
+    height: 500px;
+  }
+}
+
+@media all and (max-width: 1116px) {
+  .about {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about-img {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+
+  .about-text {
+    flex: 1;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about-text h2 {
+    font-size: 35px;
+  }
+
+  .about-img img {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media all and (max-width: 708px) {
+  .footer {
+    width: 100%;
+    height: 670px;
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+ 
+
+       
+        
+            <ul>
+                <li><a href="tours.html">Home</a></li>
+               
+                <li><a href="package.html">Package</a></li>
+              
+                <li><a href="about us.html">about us</a></li>
+                <li><a href="contact us.html">contact us</a></li>
+                <h2>My Trip</h2>
+            </ul>
+            </div>
+
+       
+        
+        <section class="banner">
+            <div class="banner-text-item">
+                <div class="banner-heading">
+                    <h1>Select your tour destination</h1>
+                </div>
+                <form class="form">
+                    <input type="text" list="mylist" placeholder="Where would you like to go?">
+                    <datalist id="mylist">
+                        <option>London</option>
+                        <option>Canada</option>
+                        <option>Monaco</option>
+                        <option>France</option>
+                        <option>Japan</option>
+                        <option>Switzerland</option>
+                        <option>Seoul</option>
+                    </datalist>
+                    <input type="date" class="date">
+                    <a href="" class="book">book</a>
+                </form>
+            </div>
+        </section>
+
+        
+        <section class="services">
+            <div class="service-item">
+                <img src="data:image/png;base64,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">
+                <h2>8000+ Our Local Guides</h2>
+            </div>
+            <div class="service-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOsWAJj1dFeatWdWhrRgSGEb2VtpyNsuP4LA&usqp=CAU">
+                <h2>100% Trusted Tour Agency</h2>
+            </div>
+            <div class="service-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9HF57FPsBBpwcH3wJs3LlGDPrD2UGSllZZokmJuMpkKIq4M0eeAvl53fKv1wDW4pYei0&usqp=CAU">
+                <h2>28+ Years of Travel Experience</h2>
+            </div>
+            <div class="service-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFyIQlnptzCP4YPrqwDxSOdRfjYoLgCtRZUA&usqp=CAU">
+                <h2>98% Our Travelers are Happy</h2>
+            </div>
+        </section>
+       
+        <section class="places">
+            <div class="places-text">
+                <small>FEATURED TOURS PACKAGES</small>
+                <h2>Favourite Places</h2>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="https://images.pexels.com/photos/1423600/pexels-photo-1423600.jpeg?cs=srgb&dl=pexels-johannes-plenio-1423600.jpg&fm=jpg">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating"></span>
+                        <h2>The Dark Forest Adventure</h2>
+
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time"> 3 Days</p>
+                            <p class="location"> Vancouver, Canada</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="https://sb.ecobnb.net/app/uploads/sites/3/2022/04/copertina-1.jpg">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating"></span>
+                        <h2>The Dark Forest Adventure</h2>
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time"> 3 Days</p>
+                            <p class="location">Paris, France</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="https://images.unsplash.com/photo-1590273466070-40c466b4432d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3JlZW4lMjBmb3Jlc3R8ZW58MHx8MHx8fDA%3D&w=1000&q=80">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating"></span>
+                        <h2>The Dark Forest Adventure</h2>
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time">3 Days</p>
+                            <p class="location"> Monaco, Monaco</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="https://www.interrail.eu/content/dam/blogazine/belgium-bruxelles-halle-forest-bluebells-flowers.adaptive.767.1627638994098.gif">
+                                
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating"></span>
+                        <h2>The Dark Forest Adventure</h2>
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time"> 3 Days</p>
+                            <p class="location"> Bern, Switzerland</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="https://t4.ftcdn.net/jpg/02/55/17/43/360_F_255174366_ojDuATz84e5h7lIlxh2moUJa9Kpd5wKk.jpg">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating"></span>
+                        <h2>The Dark Forest Adventure</h2>
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time"> 3 Days</p>
+                            <p class="location"> Seoul, South Korea</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img
+                                src="https://burst.shopifycdn.com/photos/northern-forest.jpg?width=1200&format=pjpg&exif=1&iptc=1">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating"></span>
+                        <h2>The Dark Forest Adventure</h2>
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time"> 3 Days</p>
+                            <p class="location">Tokyo, japan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="about">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1492486169476-8c5dafd9539f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMzk0MjB8fGVufDB8fHx8fA%3D%3D&w=1000&q=80">
+            </div>
+            <div class="about-text">
+                <small>ABOUT OUR COMPANY</small>
+                <h2>We are My Trip Ravels Support Company</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud</p>
+
+                <label><input type="checkbox" checked>Lorem ipsum dolor sit amet</label>
+                <label><input type="checkbox" checked>consectetur adipisicing elit</label>
+                <label><input type="checkbox" checked>Architecto atque consequuntur</label>
+                <label><input type="checkbox" checked>cupiditate doloremque ducimus</label>
+              
+            </div>
+        </section>
+
+        
+        <div class="footer">
+            <div class="links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li>Offers & Discounts</li>
+                    <li>Get Coupon</li>
+                    <li>Contact Us</li>
+                    <li>About</li>
+                </ul>
+            </div>
+            <div class="links">
+                <h3>New Products</h3>
+                <ul>
+                    <li>Woman Cloth</li>
+                    <li>Fashion Accessories</li>
+                    <li>Man Accessories</li>
+                    <li>Rubber made Toys</li>
+                </ul>
+            </div>
+            <div class="links">
+                <h3>Support</h3>
+                <ul>
+                    <li>Frequently Asked Questions</li>
+                    <li>Report a Payment Issue</li>
+                    <li>Terms & Conditions</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
